@@ -1,0 +1,99 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="92dp"
+    android:viewportWidth="120"
+    android:viewportHeight="92">
+
+    <!-- Center whiteboard / screen -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M43,14 L77,14 C78.5,14 79.5,15 79.5,16.5 L79.5,38.5 C79.5,40 78.5,41 77,41 L43,41 C41.5,41 40.5,40 40.5,38.5 L40.5,16.5 C40.5,15 41.5,14 43,14 Z"
+        android:strokeWidth="3.4"
+        android:strokeColor="#22313F"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Left person (Mentor) head -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M21,18 A7.5,7.5 0 1,1 20.99,18 Z"
+        android:strokeWidth="3.4"
+        android:strokeColor="#22313F"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Right person (Student) head -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M99,18 A7.5,7.5 0 1,1 98.99,18 Z"
+        android:strokeWidth="3.4"
+        android:strokeColor="#22313F"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Left person torso & arm reaching toward desk & pointer -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M14,61 L14,43 C14,37 18,34 22.5,34 C25.5,34 27.5,36 28.5,40 L31,47 L38,47 C41,47 42.5,49 42.5,51.5 C42.5,54 40.5,55.5 38,55.5 L26,55.5"
+        android:strokeWidth="3.4"
+        android:strokeColor="#22313F"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Pointer stick from left mentor hand up to the whiteboard -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M34,46 L48,32"
+        android:strokeWidth="3.4"
+        android:strokeColor="#22313F"
+        android:strokeLineCap="round" />
+
+    <!-- Right person torso & seated arms resting on desk -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M106,61 L106,43 C106,37 102,34 97.5,34 C94.5,34 92.5,36 91.5,40 L89,47 L82,47 C79,47 77.5,49 77.5,51.5 C77.5,54 79.5,55.5 82,55.5 L94,55.5"
+        android:strokeWidth="3.4"
+        android:strokeColor="#22313F"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Shared Desk Tabletop -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M43,53 L77,53"
+        android:strokeWidth="3.4"
+        android:strokeColor="#22313F"
+        android:strokeLineCap="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M14,61 L106,61"
+        android:strokeWidth="3.4"
+        android:strokeColor="#22313F"
+        android:strokeLineCap="round" />
+
+    <!-- Center Desk Leg -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M60,61 L60,82"
+        android:strokeWidth="3.4"
+        android:strokeColor="#22313F"
+        android:strokeLineCap="round" />
+
+    <!-- Left Chair & Legs -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M14,61 C14,67 17,70 22,70 L39,70 L39,82 M26,70 L26,82 M14,61 L14,68"
+        android:strokeWidth="3.4"
+        android:strokeColor="#22313F"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Right Chair & Legs -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M106,61 C106,67 103,70 98,70 L81,70 L81,82 M94,70 L94,82 M106,61 L106,68"
+        android:strokeWidth="3.4"
+        android:strokeColor="#22313F"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

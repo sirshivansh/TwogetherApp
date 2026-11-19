@@ -1,0 +1,461 @@
+{
+  "entities": {
+    "StudentProfile": {
+      "title": "StudentProfile",
+      "description": "A child learner profile on a shared or personal device (Classes 1-10).",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Authenticated Firebase UID owning this shared device profile."
+        },
+        "name": {
+          "type": "string",
+          "description": "Student display name."
+        },
+        "email": {
+          "type": "string",
+          "description": "Student login email address."
+        },
+        "gradeClass": {
+          "type": "integer",
+          "description": "Class level from 1 to 10."
+        },
+        "avatarId": {
+          "type": "string",
+          "description": "Animal or astronaut avatar identifier."
+        },
+        "themeColorKey": {
+          "type": "string",
+          "enum": ["terracotta", "marigold", "sage", "cinnamon", "plum"],
+          "description": "Student favorite color theme key."
+        },
+        "preferredLanguage": {
+          "type": "string",
+          "description": "Preferred learning language (English, Hindi, Bilingual)."
+        },
+        "parentalConsentGiven": {
+          "type": "boolean",
+          "description": "Safeguarding parental or guardian consent flag."
+        },
+        "centerName": {
+          "type": "string",
+          "description": "NGO, govt school, or community learning centre name."
+        },
+        "pinSequence": {
+          "type": "string",
+          "description": "4-tap color/shape PIN sequence."
+        },
+        "xpPoints": {
+          "type": "integer",
+          "description": "Accumulated Knowledge Tree points."
+        },
+        "modulesCompleted": {
+          "type": "integer",
+          "description": "Completed lessons and quizzes count."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of creation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last update."
+        }
+      },
+      "required": [
+        "userId",
+        "name",
+        "email",
+        "gradeClass",
+        "avatarId",
+        "themeColorKey",
+        "preferredLanguage",
+        "parentalConsentGiven",
+        "centerName",
+        "pinSequence",
+        "xpPoints",
+        "modulesCompleted",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "DoubtItem": {
+      "title": "DoubtItem",
+      "description": "Student question queued offline and synced to Firestore when online.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Authenticated Firebase UID."
+        },
+        "studentProfileId": {
+          "type": "string",
+          "description": "Local student profile identifier."
+        },
+        "studentName": {
+          "type": "string",
+          "description": "Student display name."
+        },
+        "gradeClass": {
+          "type": "integer",
+          "description": "Class level from 1 to 10."
+        },
+        "subject": {
+          "type": "string",
+          "description": "Subject name."
+        },
+        "questionText": {
+          "type": "string",
+          "description": "Question text entered via voice or keyboard."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "synced", "answered"],
+          "description": "Sync and resolution status."
+        },
+        "educatorReply": {
+          "type": "string",
+          "description": "Optional educator response."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of creation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last update."
+        }
+      },
+      "required": [
+        "userId",
+        "studentProfileId",
+        "studentName",
+        "gradeClass",
+        "subject",
+        "questionText",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "EducatorProfile": {
+      "title": "EducatorProfile",
+      "description": "Volunteer educator onboarding record, Gemini AI document verification, and certificate metrics.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Authenticated Firebase UID."
+        },
+        "fullName": {
+          "type": "string",
+          "description": "Educator full name."
+        },
+        "email": {
+          "type": "string",
+          "description": "Educator portal email."
+        },
+        "tier": {
+          "type": "string",
+          "enum": ["TIER_1_PAID", "TIER_2_UNPAID", "TIER_3_RETIRED"],
+          "description": "Volunteer educator tier."
+        },
+        "board12th": {
+          "type": "string",
+          "description": "12th-pass education board."
+        },
+        "rollYear": {
+          "type": "string",
+          "description": "12th-pass year or roll reference."
+        },
+        "stream": {
+          "type": "string",
+          "description": "Academic stream."
+        },
+        "subjectSpecialty": {
+          "type": "string",
+          "description": "Primary teaching subject."
+        },
+        "referenceContact": {
+          "type": "string",
+          "description": "Educator reference contact for safeguarding verification."
+        },
+        "documentAttached": {
+          "type": "boolean",
+          "description": "Whether verification document was attached."
+        },
+        "docVerificationStatus": {
+          "type": "string",
+          "enum": ["PENDING", "AI_VERIFIED", "NEEDS_REVIEW", "ADMIN_APPROVED", "REJECTED"],
+          "description": "Document verification status from Gemini Vision and Admin."
+        },
+        "docAiSummary": {
+          "type": "string",
+          "description": "Concise verification summary."
+        },
+        "docConfidence": {
+          "type": "integer",
+          "description": "AI verification confidence score 0-100."
+        },
+        "isBackupRoster": {
+          "type": "boolean",
+          "description": "Whether educator is active on the backup continuity roster."
+        },
+        "adminApproved": {
+          "type": "boolean",
+          "description": "Whether coordinator/admin approved the educator."
+        },
+        "testScore": {
+          "type": "integer",
+          "description": "Subject assessment score out of 3."
+        },
+        "contractSigned": {
+          "type": "boolean",
+          "description": "Whether volunteer pledge contract was accepted."
+        },
+        "trainingCompleted": {
+          "type": "boolean",
+          "description": "Whether onboarding pedagogy training is completed."
+        },
+        "onboardingStep": {
+          "type": "integer",
+          "description": "Current onboarding step 1 to 5."
+        },
+        "hoursTaught": {
+          "type": "number",
+          "description": "Total hours taught for Bronze/Silver/Gold certificates."
+        },
+        "doubtsResolved": {
+          "type": "integer",
+          "description": "Total student doubts resolved."
+        },
+        "studentsMentored": {
+          "type": "integer",
+          "description": "Total students mentored."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of creation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last update."
+        }
+      },
+      "required": [
+        "userId",
+        "fullName",
+        "email",
+        "tier",
+        "board12th",
+        "rollYear",
+        "stream",
+        "subjectSpecialty",
+        "referenceContact",
+        "documentAttached",
+        "docVerificationStatus",
+        "docAiSummary",
+        "docConfidence",
+        "isBackupRoster",
+        "adminApproved",
+        "testScore",
+        "contractSigned",
+        "trainingCompleted",
+        "onboardingStep",
+        "hoursTaught",
+        "doubtsResolved",
+        "studentsMentored",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "LiveSession": {
+      "title": "LiveSession",
+      "description": "Live mentoring classroom session for online students and volunteer educators.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Authenticated Firebase UID."
+        },
+        "title": {
+          "type": "string",
+          "description": "Session topic title."
+        },
+        "subject": {
+          "type": "string",
+          "description": "Subject covered."
+        },
+        "gradeRange": {
+          "type": "string",
+          "description": "Target classes e.g. Class 4-6."
+        },
+        "educatorName": {
+          "type": "string",
+          "description": "Volunteer educator name."
+        },
+        "educatorTier": {
+          "type": "string",
+          "enum": ["TIER_1_PAID", "TIER_2_UNPAID", "TIER_3_RETIRED"],
+          "description": "Tier of the educator."
+        },
+        "openSession": {
+          "type": "boolean",
+          "description": "Whether session is currently live."
+        },
+        "participantCount": {
+          "type": "integer",
+          "description": "Number of learners in the room."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of creation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last update."
+        }
+      },
+      "required": [
+        "userId",
+        "title",
+        "subject",
+        "gradeRange",
+        "educatorName",
+        "educatorTier",
+        "openSession",
+        "participantCount",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "UploadedLesson": {
+      "title": "UploadedLesson",
+      "description": "Learning lesson, study notes, and metadata uploaded by a verified educator.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Authenticated Firebase UID."
+        },
+        "title": {
+          "type": "string",
+          "description": "Lesson title."
+        },
+        "subject": {
+          "type": "string",
+          "description": "Curriculum subject."
+        },
+        "gradeClass": {
+          "type": "integer",
+          "description": "Class level 1 to 10."
+        },
+        "durationLabel": {
+          "type": "string",
+          "description": "Duration label."
+        },
+        "summary": {
+          "type": "string",
+          "description": "Short lesson summary."
+        },
+        "studyNotes": {
+          "type": "string",
+          "description": "Offline-ready study notes."
+        },
+        "language": {
+          "type": "string",
+          "description": "Language of instruction."
+        },
+        "uploadedByEducatorEmail": {
+          "type": "string",
+          "description": "Uploading educator email."
+        },
+        "uploadedByEducatorName": {
+          "type": "string",
+          "description": "Uploading educator display name."
+        },
+        "qualityStatus": {
+          "type": "string",
+          "enum": ["APPROVED", "PENDING_REVIEW"],
+          "description": "Admin quality review status."
+        },
+        "feedbackRating": {
+          "type": "number",
+          "description": "Average learner feedback rating 0.0 to 5.0."
+        },
+        "feedbackCount": {
+          "type": "integer",
+          "description": "Total feedback ratings count."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of creation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last update."
+        }
+      },
+      "required": [
+        "userId",
+        "title",
+        "subject",
+        "gradeClass",
+        "durationLabel",
+        "summary",
+        "studyNotes",
+        "language",
+        "uploadedByEducatorEmail",
+        "uploadedByEducatorName",
+        "qualityStatus",
+        "feedbackRating",
+        "feedbackCount",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/student_profiles/{profileId}": {
+      "schema": {
+        "$ref": "#/entities/StudentProfile"
+      },
+      "description": "Multi-profile student accounts scoped to the authenticated NGO/family user."
+    },
+    "/users/{userId}/doubts/{doubtId}": {
+      "schema": {
+        "$ref": "#/entities/DoubtItem"
+      },
+      "description": "Synced student doubts queued offline and uploaded via WorkManager."
+    },
+    "/users/{userId}/educators/{educatorId}": {
+      "schema": {
+        "$ref": "#/entities/EducatorProfile"
+      },
+      "description": "Educator onboarding state, document verification, and badge metrics."
+    },
+    "/users/{userId}/live_sessions/{sessionId}": {
+      "schema": {
+        "$ref": "#/entities/LiveSession"
+      },
+      "description": "Live classroom sessions associated with the authenticated user."
+    },
+    "/users/{userId}/uploaded_lessons/{lessonId}": {
+      "schema": {
+        "$ref": "#/entities/UploadedLesson"
+      },
+      "description": "Teacher-uploaded lessons, study notes, and quality review metadata."
+    }
+  }
+}
